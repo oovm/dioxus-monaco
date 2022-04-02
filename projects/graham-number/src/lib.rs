@@ -1,7 +1,20 @@
+#![doc=include_str!("../Readme.md")]
+
 use num::{BigInt, Integer};
 use std::ops::{Div, Mul};
 
-pub fn graham_number(digits: u32) -> String {
+/// Computes the last n digits of [graham's number](https://en.wikipedia.org/wiki/Graham%27s_number).
+///
+/// Returns a string because of leading zeroes
+///
+/// # Examples
+///
+/// ```rust
+/// use graham_number::graham_last_digits;
+///
+/// assert_eq!("2464195387", graham_last_digits(10))
+/// ```
+pub fn graham_last_digits(digits: u32) -> String {
     let last = tetration_mod(BigInt::from(3), digits + 1, BigInt::from(10).pow(digits));
     format!("{:0>d$}", last, d = digits as usize)
 }
@@ -17,10 +30,4 @@ fn tetration_mod(a: BigInt, t: u32, m: BigInt) -> BigInt {
             a.modpow(&sub, &m)
         }
     }
-}
-
-#[test]
-fn test() {
-    let out = graham_number(1000);
-    println!("{}", out);
 }

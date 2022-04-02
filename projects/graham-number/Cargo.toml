@@ -1,9 +1,10 @@
 [package]
 name = "graham-number"
-version = "1.0.0"
+version = "0.1.0"
 authors = ["Aster <192607617@qq.com>"]
 description = "Calculate the graham number from last digits to left"
 repository = "https://github.com/oovm/power-mod"
+documentation = "https://docs.rs/graham-number"
 readme = "Readme.md"
 license = "MPL-2.0"
 edition = "2021"
@@ -15,7 +16,3 @@ num = "0.4.0"
 
 [features]
 default = []
-
-[package.metadata.wee]
-t = "cargo test"
-p = "cargo publish --allow-dirty"
