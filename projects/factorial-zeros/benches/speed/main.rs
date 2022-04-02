@@ -4,7 +4,7 @@ use num::BigInt;
 
 fn criterion_benchmark(c: &mut Criterion) {
     c.bench_function("fast", |b| b.iter(|| factorial_zeros_fast(black_box(123456789))));
-    c.bench_function("big", |b| b.iter(|| factorial_zeros(black_box(BigInt::from(123456789)))));
+    c.bench_function("big", |b| b.iter(|| factorial_zeros(black_box(&BigInt::from(123456789)))));
 }
 
 pub fn benches() {

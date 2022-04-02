@@ -39,16 +39,6 @@ where
 }
 
 /// Power mod for all integer
-pub fn power_mod<A, E, M>(a: &A, e: &E, m: &M) -> BigInt
-where
-    A: Into<BigInt> + Clone,
-    E: Into<BigInt> + Clone,
-    M: Into<BigInt> + Clone,
-{
-    let zero: BigInt = Zero::zero();
-    let a: BigInt = a.clone().into();
-    let e: BigInt = e.clone().into();
-    let m: BigInt = m.clone().into();
-    assert!(e >= zero);
+pub fn power_mod(a: &BigInt, e: &BigInt, m: &BigInt) -> BigInt {
     a.modpow(&e, &m)
 }

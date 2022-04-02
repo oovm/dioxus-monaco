@@ -1,4 +1,5 @@
 use criterion::{black_box, Criterion};
+use factorial_mod::power_mod_fast;
 
 fn fibonacci(n: u64) -> u64 {
     match n {
@@ -9,7 +10,7 @@ fn fibonacci(n: u64) -> u64 {
 }
 
 fn criterion_benchmark(c: &mut Criterion) {
-    c.bench_function("fib 20", |b| b.iter(|| fibonacci(black_box(20))));
+    c.bench_function("fast", |b| b.iter(|| power_mod_fast(black_box(123456789), black_box(123456789), black_box(10086))));
 }
 
 pub fn benches() {
