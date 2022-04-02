@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Aster <192607617@qq.com>"]
 description = "Fast count zeros in for $n!$"
 repository = "https://github.com/oovm/power-mod"
+documentation = "https://docs.rs/factorial-zeros"
 readme = "Readme.md"
 license = "MPL-2.0"
 edition = "2021"

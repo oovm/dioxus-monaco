@@ -1,15 +1,10 @@
 use criterion::{black_box, Criterion};
-
-fn fibonacci(n: u64) -> u64 {
-    match n {
-        0 => 1,
-        1 => 1,
-        n => fibonacci(n - 1) + fibonacci(n - 2),
-    }
-}
+use factorial_zeros::{factorial_zeros, factorial_zeros_fast};
+use num::BigInt;
 
 fn criterion_benchmark(c: &mut Criterion) {
-    c.bench_function("fib 20", |b| b.iter(|| fibonacci(black_box(20))));
+    c.bench_function("fast", |b| b.iter(|| factorial_zeros_fast(black_box(123456789))));
+    c.bench_function("big", |b| b.iter(|| factorial_zeros(black_box(BigInt::from(123456789)))));
 }
 
 pub fn benches() {

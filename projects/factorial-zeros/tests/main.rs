@@ -1,4 +1,5 @@
-use power_mod::{power_mod, power_mod_fast};
+use factorial_zeros::{factorial_zeros, factorial_zeros_fast};
+use num::BigInt;
 
 #[test]
 fn ready() {
@@ -7,8 +8,8 @@ fn ready() {
 
 #[test]
 fn test() {
-    let out = power_mod_fast(5, 3, 13);
-    print!("{}", out);
-    let out = power_mod(&5, &3, &13);
-    print!("{}", out);
+    let out = factorial_zeros_fast(123);
+    println!("{}", out);
+    let out = factorial_zeros(BigInt::from(123));
+    println!("{}", out);
 }
