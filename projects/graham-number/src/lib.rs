@@ -1,6 +1,6 @@
 #![doc=include_str!("../Readme.md")]
 
-use num::{BigInt, Integer};
+use num::{BigInt, Integer, One, Zero};
 use std::ops::{Div, Mul};
 
 /// Computes the last n digits of [graham's number](https://en.wikipedia.org/wiki/Graham%27s_number).
@@ -20,6 +20,9 @@ pub fn graham_last_digits(digits: u32) -> String {
 }
 
 fn tetration_mod(a: BigInt, t: u32, m: BigInt) -> BigInt {
+    if m.is_zero() {
+        panic!("Cannot divide by zero {} {}", a, t)
+    }
     match t {
         0 => BigInt::from(0),
         1 => a.mod_floor(&m),
